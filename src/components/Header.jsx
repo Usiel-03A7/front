@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
-import { useCart } from '../context/CartContext'; // ← Importa useCart
+import { useCart } from '../context/CartContext';
 import '../styles/Header.css';
 
 const Header = () => {
   const { cart } = useCart();
+
   return (
     <header className="header">
       <Link to="/" className="logo">Tienda de Computadoras</Link>

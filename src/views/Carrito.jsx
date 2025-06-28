@@ -1,8 +1,16 @@
 import { useCart } from '../context/CartContext';
 import '../styles/Carrito.css';
 
+const QuantitySelector = ({ quantity, onIncrease, onDecrease }) => (
+  <div className="quantity-selector">
+    <button onClick={onDecrease}>-</button>
+    <span>{quantity}</span>
+    <button onClick={onIncrease}>+</button>
+  </div>
+);
+
 const Carrito = () => {
-  const { cart, total, removeFromCart } = useCart();
+  const { cart, total, addToCart, removeFromCart } = useCart();
 
   return (
     <div className="carrito-container">
@@ -16,11 +24,25 @@ const Carrito = () => {
               <img
                 src={item.product.image}
                 alt={item.product.name}
+                className="cart-item-image"
               />
               <div className="item-details">
                 <h3>{item.product.name}</h3>
-                <p>Cantidad: {item.quantity}</p>
-                <p>Precio unitario: ${item.product.price}</p>
+                <p>Precio unitario: ${item.product.price.toLocaleString()}</p>
+                <div className="quantity-control">
+                  <QuantitySelector
+                    quantity={item.quantity}
+                    onIncrease={() => addToCart(item.product, 1)}
+                    onDecrease={() => {
+                      if (item.quantity > 1) {
+                        addToCart(item.product, -1);
+                      } else {
+                        removeFromCart(item.product.id);
+                      }
+                    }}
+                  />
+                </div>
+                <p>Total: ${(item.product.price * item.quantity).toLocaleString()}</p>
                 <button
                   onClick={() => removeFromCart(item.product.id)}
                   className="btn-eliminar"
@@ -31,7 +53,7 @@ const Carrito = () => {
             </div>
           ))}
           <div className="cart-total">
-            <h2>Total: ${total}</h2>
+            <h2>Total: ${total.toLocaleString()}</h2>
             <button className="btn-pagar">Pagar ahora</button>
           </div>
         </div>
@@ -39,3 +61,5 @@ const Carrito = () => {
     </div>
   );
 };
+
+export default Carrito;
