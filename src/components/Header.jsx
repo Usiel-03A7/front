@@ -1,14 +1,16 @@
 import { Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext'; // ← Importa useCart
 import '../styles/Header.css';
 
 const Header = () => {
+  const { cart } = useCart();
   return (
     <header className="header">
       <Link to="/" className="logo">Tienda de Computadoras</Link>
       <nav>
         <Link to="/">Inicio</Link>
         <Link to="/catalogo">Catálogo</Link>
-        <Link to="/carrito">Carrito (0)</Link> {/* Dinámico luego */}
+        <Link to="/carrito">Carrito ({cart.length})</Link>
       </nav>
     </header>
   );
