@@ -1,14 +1,14 @@
-import { useParams } from 'react-router-dom';
-import { getProducts } from '../controllers/ProductController';
-import { useCart } from '../context/CartContext';
-import '../styles/ProductoDetalle.css';
+import { useParams } from 'react-router-dom'
+import { getProducts } from '../controllers/ProductController'
+import { useCart } from '../context/CartContext'
+import '../styles/ProductoDetalle.css'
 
 const ProductoDetalle = () => {
-  const { id } = useParams();
-  const { addToCart } = useCart();
-  const product = getProducts().find(p => p.id === parseInt(id));
+  const { id } = useParams()
+  const { addToCart } = useCart()
+  const product = getProducts().find(p => p.id === parseInt(id))
 
-  if (!product) return <div>Producto no encontrado</div>;
+  if (!product) return <div>Producto no encontrado</div>
 
   return (
     <div className="detalle-container">
@@ -44,7 +44,7 @@ const ProductoDetalle = () => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProductoDetalle;
+export default ProductoDetalle

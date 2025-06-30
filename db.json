@@ -1,0 +1,23 @@
+{
+  "users": [
+    {
+      "email": "user@example.com",
+      "password": "123456",
+      "name": "Usuario Demo",
+      "orders": []
+    }
+  ],
+  "orders": [],
+  "products": [
+    {
+      "id": 1,
+      "name": "Laptop Gamer Xtreme",
+      "price": 19999,
+      "image": "/images/gamer.png",
+      "specs": {
+        "ram": "32GB",
+        "cpu": "AMD Ryzen 9"
+      }
+    }
+  ]
+}

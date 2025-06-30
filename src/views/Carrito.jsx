@@ -1,5 +1,6 @@
-import { useCart } from '../context/CartContext';
-import '../styles/Carrito.css';
+import { useCart } from '../context/CartContext'
+import { Link } from 'react-router-dom'
+import '../styles/Carrito.css'
 
 const QuantitySelector = ({ quantity, onIncrease, onDecrease }) => (
   <div className="quantity-selector">
@@ -7,10 +8,10 @@ const QuantitySelector = ({ quantity, onIncrease, onDecrease }) => (
     <span>{quantity}</span>
     <button onClick={onIncrease}>+</button>
   </div>
-);
+)
 
 const Carrito = () => {
-  const { cart, total, addToCart, removeFromCart } = useCart();
+  const { cart, total, addToCart, removeFromCart } = useCart()
 
   return (
     <div className="carrito-container">
@@ -35,9 +36,9 @@ const Carrito = () => {
                     onIncrease={() => addToCart(item.product, 1)}
                     onDecrease={() => {
                       if (item.quantity > 1) {
-                        addToCart(item.product, -1);
+                        addToCart(item.product, -1)
                       } else {
-                        removeFromCart(item.product.id);
+                        removeFromCart(item.product.id)
                       }
                     }}
                   />
@@ -54,12 +55,14 @@ const Carrito = () => {
           ))}
           <div className="cart-total">
             <h2>Total: ${total.toLocaleString()}</h2>
-            <button className="btn-pagar">Pagar ahora</button>
+            <Link to="/checkout" className="btn-paga">
+              Proceder al Pago
+            </Link>
           </div>
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Carrito;
+export default Carrito

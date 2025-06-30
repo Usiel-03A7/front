@@ -2,6 +2,11 @@ import Cart from './../models/Card';
 
 const cart = new Cart();
 
+const savedCart = localStorage.getItem('cart');
+if (savedCart) {
+  cart.items = JSON.parse(savedCart);
+}
+
 export const addToCart = (product, quantity) => {
   cart.addItem(product, quantity);
 };
@@ -16,4 +21,8 @@ export const getCartTotal = () => {
 
 export const removeFromCart = (productId) => {
   cart.removeItem(productId);
+};
+
+export const clearCart = () => {
+  cart.items = [];
 };

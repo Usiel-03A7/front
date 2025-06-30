@@ -1,16 +1,33 @@
-import React, { createContext, useContext, useState } from 'react';
-import { addToCart, getCartItems, getCartTotal, removeFromCart } from '../controllers/CartController';
+import { createContext, useContext, useState, useEffect } from 'react'
+import { addToCart, getCartItems, getCartTotal, removeFromCart, clearCart as clearCartController } from '../controllers/CartController'
 
-const CartContext = createContext();
+const CartContext = createContext()
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState(getCartItems());
-  const [total, setTotal] = useState(getCartTotal());
+  const [cart, setCart] = useState([])
+  const [total, setTotal] = useState(0)
+
+  useEffect(() => {
+    const savedCart = localStorage.getItem('cart')
+    if (savedCart) {
+      setCart(JSON.parse(savedCart))
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart))
+    setTotal(getCartTotal())
+  }, [cart])
 
   const updateCart = () => {
-    setCart([...getCartItems()]);
-    setTotal(getCartTotal());
-  };
+    setCart([...getCartItems()])
+  }
+
+  const clearCart = () => {
+    clearCartController()
+    setCart([])
+    localStorage.removeItem('cart')
+  }
 
   return (
     <CartContext.Provider
@@ -18,24 +35,19 @@ export const CartProvider = ({ children }) => {
         cart,
         total,
         addToCart: (product, quantity) => {
-          addToCart(product, quantity);
-          updateCart();
+          addToCart(product, quantity)
+          updateCart()
         },
         removeFromCart: (productId) => {
-          removeFromCart(productId);
-          updateCart();
+          removeFromCart(productId)
+          updateCart()
         },
+        clearCart
       }}
     >
       {children}
     </CartContext.Provider>
-  );
-};
+  )
+}
 
-export const useCart = () => {
-  const context = useContext(CartContext);
-  if (context === null || context === undefined) {
-    throw new Error('useCart debe ser usado dentro de un CartProvider');
-  }
-  return context;
-};
+export const useCart = () => useContext(CartContext)
