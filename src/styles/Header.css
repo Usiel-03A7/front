@@ -5,13 +5,42 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
+
 .header a {
   color: white;
   text-decoration: none;
   margin: 0 10px;
+  white-space: nowrap;
 }
+
 .logo {
   font-weight: bold;
   font-size: 1.5rem;
+  margin-right: auto;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .logo {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  nav {
+    width: 100%;
+  }
 }
