@@ -52,6 +52,22 @@ const Carrito = () => {
                 <div className="item-details">
                   <h3>{item.product.name}</h3>
                   <div className="item-price">${item.product.price.toLocaleString()}</div>
+                  
+                  <div className="item-financiacion">
+                    {item.product.selectedMonths ? (
+                      <div className="financiacion-selected">
+                        <span>Pago a {item.product.selectedMonths} meses</span>
+                        <span className="mes-pago">
+                          ${(item.product.price / item.product.selectedMonths).toFixed(2)}/mes
+                        </span>
+                      </div>
+                    ) : (
+                      <div className="financiacion-none">
+                        Pago de contado
+                      </div>
+                    )}
+                  </div>
+
                   <QuantitySelector
                     quantity={item.quantity}
                     onIncrease={() => addToCart(item.product, 1)}

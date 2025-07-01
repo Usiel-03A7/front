@@ -1,6 +1,6 @@
-import Product from '../models/Product'
-import gamerImg from '../assets/images/gamer.png'
-import macImg from '../assets/images/mac.png'
+import Product from '../models/Product';
+import gamerImg from '../assets/images/gamer.png';
+import macImg from '../assets/images/mac.png';
 
 const products = [
   new Product(
@@ -10,7 +10,7 @@ const products = [
     "Laptop para gaming con RGB",
     gamerImg,
     { ram: "32GB", cpu: "AMD Ryzen 9", storage: "1TB SSD" },
-    [6, 12]
+    [3, 6, 12]
   ),
   new Product(
     2,
@@ -21,8 +21,8 @@ const products = [
     { ram: "16GB", cpu: "Apple M2", storage: "512GB SSD" },
     [6, 12]
   )
-]
+];
 
 export const getProducts = () => {
-  return products
-}
+  return products;
+};

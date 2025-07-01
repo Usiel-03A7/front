@@ -29,7 +29,7 @@
 }
 
 .producto-info h1 {
-  color: var(--dark-color);
+  color: #2d3748;
   font-size: 2rem;
   line-height: 1.2;
 }
@@ -37,17 +37,17 @@
 .producto-precio {
   font-size: 1.75rem;
   font-weight: 700;
-  color: var(--primary-color);
+  color: #667eea;
 }
 
 .producto-descripcion {
-  color: var(--gray-dark);
+  color: #4a5568;
   line-height: 1.6;
 }
 
 .producto-especificaciones h3,
 .producto-financiacion h3 {
-  color: var(--dark-color);
+  color: #2d3748;
   margin-bottom: 1rem;
   font-size: 1.25rem;
 }
@@ -67,10 +67,10 @@
 }
 
 .specs-list strong {
-  color: var(--primary-color);
+  color: #667eea;
 }
 
-.meses-sin-intereses {
+.meses-options {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -81,8 +81,51 @@
   background: white;
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  font-weight: 500;
-  color: var(--dark-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.mes-option:hover {
+  border-color: #667eea;
+}
+
+.mes-option.selected {
+  border-color: #667eea;
+  background-color: rgba(102, 126, 234, 0.05);
+}
+
+.mes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.mes-radio {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #a0aec0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mes-option.selected .mes-radio {
+  border-color: #667eea;
+}
+
+.mes-radio-selected {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #667eea;
+}
+
+.mes-detail {
+  font-weight: 600;
+  color: #667eea;
 }
 
 .agregar-carrito {
@@ -99,12 +142,12 @@
 }
 
 .product-not-found h2 {
-  color: var(--dark-color);
+  color: #2d3748;
   margin-bottom: 1rem;
 }
 
 .product-not-found p {
-  color: var(--gray-dark);
+  color: #4a5568;
 }
 
 @media (max-width: 992px) {
