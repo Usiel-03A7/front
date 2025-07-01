@@ -1,8 +1,6 @@
 # Tienda de Computadoras - Assessment
 ## Hecho por: [Usiel Sebastian Solano Silva]
 ## Para el puesto de Front end
-![Captura de pantalla de la tienda](![image](https://github.com/user-attachments/assets/af26b008-b9a1-4acb-9dee-6cf3412f3236)
-)
 
 Una tienda en línea especializada en la venta de computadoras con opciones de financiamiento a meses sin intereses.
 
