@@ -6,6 +6,18 @@
   z-index: 100;
   padding: 1rem 0;
 }
+.logout-btn {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+.logout-btn:hover {
+  color: #667eea;
+}
 
 .header-content {
   display: flex;

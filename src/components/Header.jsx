@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
 import '../styles/Header.css';
 
 const Header = () => {
   const { cart } = useCart();
+  const { user, logout } = useAuth();
 
   return (
     <header className="header">
@@ -15,10 +17,15 @@ const Header = () => {
           <Link to="/carrito" className="nav-link cart-link">
             Carrito <span className="cart-count">{cart.length}</span>
           </Link>
+          {user && (
+            <button onClick={logout} className="nav-link logout-btn">
+              Cerrar Sesión
+            </button>
+          )}
         </nav>
       </div>
     </header>
   );
 };
 
-export default Header;
+export default Header;  
