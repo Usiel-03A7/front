@@ -1,72 +1,113 @@
 .home-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 0 1rem;
+}
+
+.hero {
+  background: var(--primary-gradient);
+  color: white;
+  border-radius: 16px;
+  padding: 4rem 2rem;
+  margin: 2rem 0;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.home-title {
-  font-size: 2rem;
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../assets/images/pattern.png') center/cover;
+  opacity: 0.1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 1.25rem;
   margin-bottom: 2rem;
-  color: #333;
+  opacity: 0.9;
 }
 
-.home-buttons {
+.hero-buttons {
   display: flex;
-  justify-content: center;
   gap: 1rem;
-  margin-bottom: 3rem;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
-.home-button {
-  background: #007bff;
-  color: white;
-  padding: 0.8rem 1.5rem;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-
-.home-button:hover {
-  background: #0056b3;
-}
-
-.home-features {
+.features {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 4rem 0;
 }
 
-.feature-card {
-  background: #f8f9fa;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.feature {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
 }
 
-@media (max-width: 768px) {
-  .home-title {
-    font-size: 1.5rem;
-  }
-  
-  .home-buttons {
-    margin-bottom: 2rem;
-  }
-  
-  .feature-card {
-    padding: 1rem;
-  }
+.feature:hover {
+  transform: translateY(-5px);
 }
 
-@media (max-width: 480px) {
-  .home-title {
-    font-size: 1.3rem;
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.feature h3 {
+  color: var(--dark-color);
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.feature p {
+  color: var(--gray-dark);
+}
+
+.cta {
+  text-align: center;
+  margin: 4rem 0;
+}
+
+.cta h2 {
+  color: var(--dark-color);
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 992px) {
+  .hero {
+    padding: 3rem 1.5rem;
   }
   
-  .home-button {
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
   }
 }

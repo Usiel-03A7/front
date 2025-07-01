@@ -1,35 +1,44 @@
 .catalogo-container {
-  padding: 1rem;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 2rem 1rem;
 }
 
-.catalogo-container h1 {
+.catalogo-header {
   text-align: center;
-  margin-bottom: 1.5rem;
-  font-size: 1.8rem;
-  color: #333;
+  margin-bottom: 2rem;
+}
+
+.catalogo-header h1 {
+  color: var(--dark-color);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.catalogo-header p {
+  color: var(--gray-dark);
+  font-size: 1.1rem;
 }
 
 .productos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
 .producto-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 1rem;
-  transition: transform 0.3s, box-shadow 0.3s;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
 }
 
 .producto-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .producto-link {
@@ -40,98 +49,111 @@
   flex-grow: 1;
 }
 
-.producto-imagen {
-  width: 100%;
-  height: 180px;
-  object-fit: contain;
-  background: #f5f5f5;
-  border-radius: 4px;
-  margin-bottom: 1rem;
-  padding: 1rem;
+.producto-imagen-container {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
 }
 
-.producto-descripcion {
-  font-size: 0.9rem;
-  color: #555;
-  margin: 0.5rem 0;
+.producto-imagen {
+  height: 180px;
+  object-fit: contain;
+}
+
+.producto-info {
+  padding: 1.5rem;
   flex-grow: 1;
 }
 
-.specs-list {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0;
+.producto-info h3 {
+  color: var(--dark-color);
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
 }
 
-.specs-list li {
-  margin-bottom: 0.5rem;
+.producto-descripcion {
+  color: var(--gray-dark);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.producto-especificaciones {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.especificacion {
+  display: flex;
+  justify-content: space-between;
   font-size: 0.85rem;
-  color: #666;
 }
 
-.precio-container {
-  margin: 1rem 0;
+.especificacion-key {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.especificacion-value {
+  color: var(--dark-color);
+}
+
+.producto-precio-container {
+  padding: 0 1.5rem 1.5rem;
 }
 
 .precio {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #333;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
 }
 
 .meses-sin-intereses {
   display: flex;
-  flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .meses-sin-intereses span {
-  background: #f0f0f0;
-  padding: 0.3rem 0.6rem;
-  border-radius: 4px;
+  background: var(--gray-light);
+  color: var(--primary-color);
   font-size: 0.75rem;
-  color: #444;
-}
-
-.btn-comprar {
-  width: 100%;
-  padding: 0.7rem;
-  background: #007bff;
-  color: white;
-  border: none;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
   border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  margin-top: 0.5rem;
-  transition: background 0.3s;
 }
 
-.btn-comprar:hover {
-  background: #0056b3;
+.agregar-carrito {
+  margin: 0 1.5rem 1.5rem;
+  width: calc(100% - 3rem);
 }
 
 @media (max-width: 768px) {
   .productos-grid {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
   }
   
-  .producto-imagen {
-    height: 160px;
+  .catalogo-header h1 {
+    font-size: 1.75rem;
   }
 }
 
 @media (max-width: 480px) {
+  .catalogo-container {
+    padding: 1.5rem 1rem;
+  }
+  
   .productos-grid {
     grid-template-columns: 1fr;
   }
   
-  .catalogo-container h1 {
-    font-size: 1.5rem;
-  }
-  
   .producto-imagen {
-    height: 140px;
+    height: 160px;
   }
 }

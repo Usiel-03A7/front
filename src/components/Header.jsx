@@ -7,12 +7,16 @@ const Header = () => {
 
   return (
     <header className="header">
-      <Link to="/" className="logo">Tienda de Computadoras</Link>
-      <nav>
-        <Link to="/">Inicio</Link>
-        <Link to="/catalogo">Catálogo</Link>
-        <Link to="/carrito">Carrito ({cart.length})</Link>
-      </nav>
+      <div className="container header-content">
+        <Link to="/" className="logo">TiendaTech</Link>
+        <nav className="nav">
+          <Link to="/" className="nav-link">Inicio</Link>
+          <Link to="/catalogo" className="nav-link">Catálogo</Link>
+          <Link to="/carrito" className="nav-link cart-link">
+            Carrito <span className="cart-count">{cart.length}</span>
+          </Link>
+        </nav>
+      </div>
     </header>
   );
 };

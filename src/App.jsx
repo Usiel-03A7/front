@@ -1,18 +1,18 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Home from './views/Home'
-import Catalogo from './views/Catalogo'
-import Carrito from './views/Carrito'
-import Checkout from './views/Checkout'
-import ProductoDetalle from './views/ProductoDetalle'
-import Login from './views/auth/Login'
-import Register from './views/auth/Registrer.jsx'
-import UserPanel from './views/UserPanel'
-import { CartProvider } from './context/CartContext'
-import { AuthProvider } from './context/AuthContext'
-import PrivateRoute from './components/PrivateRoute'
-import './styles/global.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './views/Home';
+import Catalogo from './views/Catalogo';
+import Carrito from './views/Carrito';
+import Checkout from './views/Checkout';
+import ProductoDetalle from './views/ProductoDetalle';
+import Login from './views/auth/Login';
+import Register from './views/auth/Registrer';
+import UserPanel from './views/UserPanel';
+import { CartProvider } from './context/CartContext';
+import { AuthProvider } from './context/AuthContext';
+import PrivateRoute from './components/PrivateRoute';
+import './styles/global.css';
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
       <CartProvider>
         <Router>
           <Header />
-          <main style={{ padding: '2rem', marginBottom: '4rem' }}>
+          <main>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/catalogo" element={<Catalogo />} />
@@ -43,7 +43,7 @@ function App() {
         </Router>
       </CartProvider>
     </AuthProvider>
-  )
+  );
 }
 
-export default App
+export default App;
